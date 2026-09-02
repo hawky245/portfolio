@@ -115,7 +115,6 @@ export default function App() {
             <SectionHeader
               eyebrow="Featured Systems"
               title="Featured Engineering Systems"
-              summary="Three projects selected for engineering credibility: hardware access control, ML forecasting, and AI career guidance."
             />
 
             <div className="projects-stack">
@@ -129,7 +128,6 @@ export default function App() {
             <SectionHeader
               eyebrow="Skills Matrix"
               title="Technologies used across the work"
-              summary="Grouped by evidence area, with no fake percentages or inflated proficiency meters."
             />
             <SkillsMatrix groups={skillGroups} />
           </section>
@@ -138,7 +136,6 @@ export default function App() {
             <SectionHeader
               eyebrow="Active Initiative"
               title="Currently Building"
-              summary="An active engineering initiative shown with its current phase, role, team, and system focus."
             />
             <CurrentlyBuilding items={currentlyBuilding} />
           </section>
@@ -147,7 +144,6 @@ export default function App() {
             <SectionHeader
               eyebrow="Archive"
               title="Additional work"
-              summary="Secondary work is listed briefly so the featured engineering projects remain the primary story."
             />
             <div className="card">
               <ArchiveList items={archiveItems} />
@@ -158,7 +154,6 @@ export default function App() {
             <SectionHeader
               eyebrow="Contact"
               title="Connect or review the work"
-              summary="Recruiter-focused channels first, with phone kept as a lower-priority footer detail."
             />
             <div className="card contact-panel">
               <a className="contact-tile" href={profile.linkedin} target="_blank" rel="noreferrer">

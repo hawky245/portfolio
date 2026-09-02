@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import BorderGlow from './BorderGlow';
 
-export function SectionHeader({ eyebrow, title, summary }) {
+export function SectionHeader({ eyebrow, title }) {
   return (
     <div className="section-header">
       {eyebrow ? <span className="section-eyebrow">{eyebrow}</span> : null}
       <h2 className="section-heading">{title}</h2>
-      {summary ? <p className="section-summary">{summary}</p> : null}
     </div>
   );
 }
