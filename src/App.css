@@ -237,6 +237,8 @@
   margin-bottom: 1.25rem;
   justify-content: flex-start;
   text-shadow: 0 4px 30px rgba(0, 0, 0, 0.72);
+  /* allow natural wrapping to prevent orphan initial */
+  white-space: normal;
 }
 
 .hero-role {

@@ -173,7 +173,7 @@ export default function App() {
               </a>
               <a className="contact-tile" href={profile.github} target="_blank" rel="noreferrer">
                 <span>GitHub</span>
-                <strong>Review code profile</strong>
+                <strong>View GitHub profile</strong>
               </a>
               <a className="contact-tile" href={`mailto:${profile.email}`}>
                 <span>Email</span>
