@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Skill(playwright-cli)",
+      "Skill(playwright-cli:*)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}
