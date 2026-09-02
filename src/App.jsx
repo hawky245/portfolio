@@ -1,5 +1,4 @@
 import DarkVeil from './components/DarkVeil';
-import BlurText from './components/BlurText';
 import CopyProtection from './components/CopyProtection';
 import {
   ArchiveList,
@@ -84,19 +83,14 @@ export default function App() {
               <div className="hero-copy">
                 <div className="hero-status" aria-label="Status">
                   <span className="status-dot" aria-hidden="true" />
-                  <span className="status-label">Open to internships, freelance prototypes, hackathons, and research collaboration</span>
+                  <span className="status-label">Open to internships, freelance work, and research collaboration</span>
                 </div>
 
-                <BlurText
-                  text={profile.name}
-                  delay={60}
-                  animateBy="words"
-                  direction="bottom"
-                  className="hero-title"
-                  stepDuration={0.35}
-                />
-
-                <h1 id="hero-name" className="sr-only">{profile.name}</h1>
+                <h1 id="hero-name" className="hero-title">
+                  Abhay
+                  <span className="name-break" aria-hidden="true"> </span>
+                  Surya R
+                </h1>
                 <p className="hero-role">{profile.role}</p>
                 <p className="hero-summary">{profile.summary}</p>
                 <p className="hero-education">{profile.education}</p>
@@ -121,7 +115,7 @@ export default function App() {
             <SectionHeader
               eyebrow="Featured Systems"
               title="Featured Engineering Systems"
-              summary="Three projects selected for engineering credibility: one hardware security prototype, one ML forecasting pipeline, and one honest AI product prototype."
+              summary="Three projects selected for engineering credibility: hardware access control, ML forecasting, and AI career guidance."
             />
 
             <div className="projects-stack">

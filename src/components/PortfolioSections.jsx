@@ -1,6 +1,5 @@
-import { useEffect, useId, useRef, useState } from 'react';
+import { useState } from 'react';
 import BorderGlow from './BorderGlow';
-import { resume } from '../data/portfolioData';
 
 export function SectionHeader({ eyebrow, title, summary }) {
   return (
@@ -24,29 +23,7 @@ export function CTACluster({ profile }) {
       <a className="cta" href={`mailto:${profile.email}`}>
         Email
       </a>
-      <ResumeCTA />
-      <a className="cta cta--quiet" href="#career-guidance-ai">
-        View CareerPath AI
-      </a>
     </div>
-  );
-}
-
-export function ResumeCTA() {
-  const isReady = resume.status === 'ready';
-
-  if (!isReady) {
-    return (
-      <span className="cta cta--disabled" role="status" aria-label="Resume coming soon">
-        {resume.label}
-      </span>
-    );
-  }
-
-  return (
-    <a className="cta" href={resume.href} download={resume.fileName}>
-      Download Resume
-    </a>
   );
 }
 
@@ -82,81 +59,7 @@ function TechBadges({ items }) {
   );
 }
 
-export function ScreenshotGallery({ items, projectTitle }) {
-  const [activeItem, setActiveItem] = useState(null);
-  const titleId = useId();
-  const openerRef = useRef(null);
-  const closeRef = useRef(null);
-
-  useEffect(() => {
-    if (!activeItem) return undefined;
-
-    const previous = document.activeElement;
-    closeRef.current?.focus();
-
-    const onKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        event.preventDefault();
-        setActiveItem(null);
-      }
-    };
-
-    document.addEventListener('keydown', onKeyDown);
-    document.body.style.overflow = 'hidden';
-
-    return () => {
-      document.removeEventListener('keydown', onKeyDown);
-      document.body.style.overflow = '';
-      if (previous instanceof HTMLElement) previous.focus();
-    };
-  }, [activeItem]);
-
-  return (
-    <>
-      <div className="gallery-grid" aria-label={`${projectTitle} evidence gallery`}>
-        {items.map((item) => (
-          <button
-            key={item.title}
-            type="button"
-            className="gallery-card"
-            onClick={(event) => {
-              openerRef.current = event.currentTarget;
-              setActiveItem(item);
-            }}
-          >
-            <span className="gallery-type">{item.type}</span>
-            <span className="gallery-title">{item.title}</span>
-            <span className="gallery-caption">{item.caption}</span>
-          </button>
-        ))}
-      </div>
-
-      {activeItem ? (
-        <div className="modal-backdrop" role="presentation" onMouseDown={() => setActiveItem(null)}>
-          <div
-            className="modal-panel"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={titleId}
-            onMouseDown={(event) => event.stopPropagation()}
-          >
-            <button ref={closeRef} type="button" className="modal-close" onClick={() => setActiveItem(null)}>
-              Close
-            </button>
-            <div className="modal-placeholder">
-              <span className="gallery-type">{activeItem.type}</span>
-              <h3 id={titleId}>{activeItem.title}</h3>
-              <p>{activeItem.caption}</p>
-              <span className="modal-coming-soon">Screenshot Coming Soon</span>
-            </div>
-          </div>
-        </div>
-      ) : null}
-    </>
-  );
-}
-
-function MetricPlaceholder({ metrics }) {
+export function MetricPlaceholder({ metrics }) {
   if (!metrics?.length) return null;
 
   return (
@@ -196,7 +99,6 @@ function ProjectInner({ project }) {
       </ul>
 
       <MetricPlaceholder metrics={project.metrics} />
-      <ScreenshotGallery items={project.gallery} projectTitle={project.title} />
 
       <div className="project-actions">
         <button
@@ -226,21 +128,17 @@ function ProjectInner({ project }) {
 }
 
 export function ProjectCard({ project }) {
-  if (project.priority === 'primary') {
-    return (
-      <BorderGlow
-        glowColor="271 100 50"
-        backgroundColor="#120F17"
-        edgeSensitivity={40}
-        borderRadius={16}
-        className="project-glow-shell"
-      >
-        <ProjectInner project={project} />
-      </BorderGlow>
-    );
-  }
-
-  return <ProjectInner project={project} />;
+  return (
+    <BorderGlow
+      glowColor="271 100 50"
+      backgroundColor="#120F17"
+      edgeSensitivity={40}
+      borderRadius={16}
+      className="project-glow-shell"
+    >
+      <ProjectInner project={project} />
+    </BorderGlow>
+  );
 }
 
 export function SkillsMatrix({ groups }) {
