@@ -165,8 +165,8 @@ export const projects = [
 
 export const skillGroups = [
   { title: 'Languages', skills: ['Python', 'Java', 'C++', 'SQL', 'JavaScript'] },
-  { title: 'Machine Learning', skills: ['Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib', 'Data Pipelines'] },
-  { title: 'Frameworks & Tools', skills: ['React', 'Streamlit', 'FastAPI', 'Git', 'Linux'] },
+  { title: 'Machine Learning', skills: ['scikit-learn', 'Pandas', 'Matplotlib', 'Linear Regression', 'Data Analysis'] },
+  { title: 'Frameworks & Tools', skills: ['React', 'Streamlit', 'Git', 'Linux'] },
   { title: 'Embedded & Hardware', skills: ['Arduino', 'RFID', 'GSM', 'Sensors'] },
 ];
 
