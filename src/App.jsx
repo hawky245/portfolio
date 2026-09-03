@@ -174,15 +174,8 @@ export default function App() {
 
         <footer className="site-footer" role="contentinfo">
           <div className="footer-inner">
-            <span>{profile.name} · {profile.location} · {new Date().getFullYear()}</span>
-            <span className="footer-phone">Phone: {profile.phone}</span>
-            {repositories.portfolio.status === 'public' ? (
-              <a href={repositories.portfolio.href} className="footer-link" target="_blank" rel="noreferrer">
-                View Portfolio Source Code
-              </a>
-            ) : (
-              <span className="footer-muted">Portfolio Source Private</span>
-            )}
+            <span>Abhay Surya R • Bengaluru, India</span>
+            <span className="footer-built">Built with React + Vite</span>
           </div>
         </footer>
       </div>
